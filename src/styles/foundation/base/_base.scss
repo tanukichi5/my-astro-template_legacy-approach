@@ -1,0 +1,141 @@
+@use "@/styles/global" as *;
+
+//サイトのベーススタイルを定義しています。
+//sanitize.cssをベースとして作成しています。
+
+/* Document
+ * ========================================================================== */
+
+/**
+ * 1. iOSの自動文字調整を防止する
+ * 2. ChromeとFirefoxの文字のレンダリングを合わせる
+ */
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%; /* 1 */
+  -webkit-font-smoothing: antialiased; /* 2 */
+  -moz-osx-font-smoothing: grayscale; /* 2 */
+}
+
+/**
+ * 1. 行間を詰めて余白を計算しやすくする ※邪魔場合は削除
+ */
+body {
+  width: 100%;
+  min-height: 100%;
+  font-family: $font-family-noto-sans-base;
+  color: $color-text;
+  line-height: 1; /* 1 */
+}
+
+/**
+ * 1. デフォルト余白すべて削除
+ */
+*,
+::before,
+::after {
+  margin: 0; /* 1 */
+}
+
+/* Sections
+* ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-size: 1em;
+  font-weight: inherit;
+}
+
+/* Link
+* ========================================================================== */
+
+/**
+ * 1. テキストカラーは親を継承する
+ * 2. アンダーラインはデフォルトで消しておく
+ * 3. iphoneのタップ時のリンクハイライト無効
+ * 4. スマホのみ電話番号リンクをタップ可能
+ */
+a {
+  color: inherit; /* 1 */
+  text-decoration: none; /* 2 */
+  -webkit-tap-highlight-color: transparent; /* 3 */
+  &[href^="tel:"] {
+    cursor: default;
+    @include hover() {
+      /* 4 */
+      text-decoration: none;
+      pointer-events: none;
+    }
+  }
+  @include hover() {
+    text-decoration: underline;
+  }
+}
+
+/* Grouping content
+* ========================================================================== */
+
+ul,
+ol {
+  padding-left: 0;
+}
+li {
+  list-style: none;
+}
+
+/* Embedded content
+ * ========================================================================== */
+
+/**
+ * 1. デフォルトの謎余白を削除
+ * 2. 画像の画面突き抜け防止
+ */
+img {
+  vertical-align: bottom; /* 1 */
+  max-width: 100%; /* 2 */
+  height: auto;
+}
+
+/* Forms
+ * ========================================================================== */
+
+/**
+ * 1. bodyからfont-familyを継承する
+ * 2. フォントサイズをベースに合わせる
+ */
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 1em; /* 2 */
+  margin: 0;
+}
+
+/**
+ * ボタンのデフォルトスタイルはリセットしておく
+ */
+ :where(button) {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Accessibility
+ * ========================================================================== */
+
+/**
+ * キーボード以外の操作でフォーカスされたときはoutlineを削除
+ * Safariに標準搭載されるまではfocus-visibleのPolyfillを導入する
+ */
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: 0;
+}

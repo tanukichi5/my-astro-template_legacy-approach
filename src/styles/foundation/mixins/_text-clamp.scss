@@ -1,0 +1,14 @@
+//テキストの行数を指定して3点リーダー
+//複数行はIE非対応(2行以上)
+@mixin text-clamp($line: 3) {
+  @if $line == 1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

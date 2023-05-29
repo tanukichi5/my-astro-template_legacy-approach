@@ -1,0 +1,24 @@
+/*
+
+アイコンフォントの文字コードを返す関数です。
+アイコンフォントを疑似要素で使用したいときに使います。
+
+@usage
+
+&::after {
+  font-family: "iconfont";
+  content: '#{getIconfontUnicode(arrow-right)}';
+  display: block;
+}
+
+*/
+
+@use '../base/iconfont' as *;
+
+@function getIconfontUnicode($name) {
+  @if map-get($iconfonts, $name) {
+    @return map-get($iconfonts, $name);
+  } @else {
+    @error "指定されたアイコンフォントは未定義です。指定できるアイコンフォントは次のとおりです。 -> #{map-keys($iconfonts)}";
+  }
+}

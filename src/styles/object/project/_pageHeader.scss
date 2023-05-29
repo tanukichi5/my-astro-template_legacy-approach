@@ -1,0 +1,107 @@
+@use '@/styles/global' as *;
+
+.p-pageHeader {
+  position: relative;
+  height: 400px;
+  background: #fff;
+  padding-left: $side-margin-s;
+  padding-right: $side-margin-s;
+  @include min-screen('md') {
+    height: 535px;
+    padding-left: $side-margin;
+    padding-right: $side-margin;
+  }
+  + * {
+    // margin-top: 40px;
+  }
+}
+
+.p-pageHeader__inner {
+  max-width: 100%;
+  height: 100%;
+  margin-inline: auto;
+  z-index: 2;
+  position: relative;
+}
+
+.p-pageHeader-coverImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* タイトル
+ * ========================================================================== */
+.p-pageHeader-title {
+  position: absolute;
+  bottom: 0;
+  left: -24px;
+  padding: 16px 24px;
+  border-radius: 0px 32px 0px 0px;
+  background: #fff;
+  z-index: 10;
+  @include min-screen('md') {
+    padding: 32px 48px;
+    left: -48px;
+  }
+  @include state('.p-pageHeader', '.-simple') {
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 0;
+    left: 0;
+    padding: 0;
+  }
+}
+
+.p-pageHeader-title__sub {
+  display: flex;
+  align-items: center;
+}
+.p-pageHeader-title__sub-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  @include font-size(16px);
+  @include min-screen('md') {
+    width: 56px;
+    height: 56px;
+    @include font-size(28px);
+  }
+}
+
+.p-pageHeader-title__sub-text {
+  @include font-size(14px);
+  font-family: $font-family-libreBaskerville;
+  color: $color-brand;
+  @include min-screen('md') {
+    @include font-size(24px);
+  }
+  * + & {
+    margin-left: 30px;
+    @include min-screen('md') {
+      margin-left: 35px;
+    }
+  }
+}
+
+.p-pageHeader-title__main {
+  @include font-size(32px);
+  font-family: $font-family-mincho;
+  line-height: 1.4;
+  @include min-screen('md') {
+    @include font-size(40px);
+  }
+  * + & {
+    // margin-top: 10px;
+  }
+}

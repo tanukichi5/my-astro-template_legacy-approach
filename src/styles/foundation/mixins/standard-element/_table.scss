@@ -1,0 +1,46 @@
+@use '../mediaQueries' as *;
+@use '../font-size' as *;
+@use '../../variables/color' as *;
+@use '../../variables/font-family' as *;
+
+@mixin table() {
+  table {
+    width: 100% !important;
+    border-top: solid 1px $color-grayscale-500;
+    border-left: solid 1px $color-grayscale-500;
+    table-layout: fixed;
+    a {
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    tr {
+      th {
+        padding: 12px 23px;
+        border-right: solid 1px $color-grayscale-500;
+        border-bottom: solid 1px $color-grayscale-500;
+        vertical-align: middle;
+        line-height: 1.5;
+        font-weight: normal;
+        background: $color-brand06;
+        text-align: left;
+        word-wrap: break-word;
+        word-break: break-all;
+        word-break: break-word;
+        width: auto !important;
+      }
+      td {
+        padding: 12px 10px;
+        border-right: solid 1px $color-grayscale-500;
+        border-bottom: solid 1px $color-grayscale-500;
+        vertical-align: middle;
+        line-height: 1.5;
+        position: relative;
+        width: auto !important;
+        @include font-size(14px);
+        max-width: 70%;
+      }
+    }
+  } //table
+}

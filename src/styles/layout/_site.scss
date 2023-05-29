@@ -1,0 +1,30 @@
+@use '@/styles/global' as *;
+
+//サイト全体のラッパーにあたるスタイル
+
+.l-site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.l-site-contents {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 52px;
+  @include min-screen('md') {
+    padding-top: 100px;
+  }
+}
+
+.l-site-contents-detail {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  z-index: 1;
+}
+
+.l-site-main {
+  flex: 1;
+}

@@ -1,0 +1,42 @@
+@use '../mediaQueries' as *;
+@use '../font-size' as *;
+
+@mixin ol() {
+  ol {
+		> li {
+			position: relative;
+			@include font-size(14px);
+			line-height: 2;
+			counter-increment:num;
+			padding-left: 22px;
+			 ol {
+				padding-left: 22px;
+				margin-bottom: 10px;
+				counter-reset:num;
+				> li {
+					counter-increment:num;
+
+				}
+				 ol {
+					padding-left: 22px;
+				}
+			}
+		}//li
+	}//ol
+	ol {
+		li {
+			&:before {
+				content:counter(num);
+				position: absolute;
+				left: 2px;
+				top: 6px;
+				display: block;
+				font-weight: 500;
+				@include font-size(16px);
+				line-height: 1;
+				color: #000;
+				background: none!important;
+			}
+		}
+	}//ol
+}

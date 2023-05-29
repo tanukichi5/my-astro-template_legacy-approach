@@ -1,0 +1,17 @@
+/**
+コンテナクエリのmixin: α版
+
+@usage
+@include container-min-screen('md') {
+ ここにスタイルを記述
+}
+*/
+
+@use '../functions/screen' as *;
+
+
+@mixin container-min-screen($min) {
+  @container (min-width: #{screen($min)}) {
+    @content;
+  }
+}

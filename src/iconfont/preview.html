@@ -1,0 +1,214 @@
+<html>
+
+<head>
+	<title>
+		iconfont
+	</title>
+	<link href="iconfont.css" rel="stylesheet">
+	<style>
+		body {
+			font-family: sans-serif;
+			margin: 0;
+			padding: 10px 20px;
+		}
+
+		.preview {
+			display: flex;
+			align-items: center;
+			line-height: 2em;
+		}
+
+		.preview__icon {
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			width: 40px;
+			height: 40px;
+			text-align: center;
+			margin-right: 10px;
+		}
+
+		.preview__name {
+			margin-right: 10px;
+		}
+
+		.usage {
+			background: #f1f1f1;
+			padding: 16px;
+			margin-bottom: 20px;
+		}
+
+		.usage pre {
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>
+		iconfont
+	</h1>
+	<div class="usage">
+		<pre><code>【使い方】
+■reactコンポーネントの場合（.tsx、.jsx）
+import IconFont from '@/components/common/iconFont'; //インポート
+&lt;IconFont icon=&#039;'アイコン名'&#039; className={任意のclass名を設定設定できる} /&gt;
+例)
+&lt;IconFont icon=&#039;'arrow-left'&#039; /&gt;
+
+■htmlに直書きの場合（.html）
+&lt;span class=&quot;iconfont iconfont-[アイコン名]&quot;&gt;&lt;/span&gt;
+例)
+&lt;span class=&quot;iconfont iconfont-arrow-left&quot;&gt;&lt;/span&gt;
+
+■cssで疑似要素に指定する場合（.scss、.css）
+&::after {
+  font-family: "iconfont";
+  content: '#{getIconfontUnicode([アイコン名])}';
+  display: block;
+}
+例)
+&::after {
+  font-family: "iconfont";
+  content: '#{getIconfontUnicode(arrow-left)}';
+  display: block;
+}</code></pre>
+
+	</div>
+
+	<p>アイコン | アイコン名 | unicode ←の並びで以下のアイコンの情報は表示されています</p>
+	<hr />
+	
+		<div class="preview">
+			<span class="preview__icon">
+				<span class="iconfont iconfont-arrow-left"></span>
+			</span>
+			<span class="preview__name">
+				arrow-left
+			</span>
+			<span class="preview__code">\EA01</span>
+		</div>
+		
+		<div class="preview">
+			<span class="preview__icon">
+				<span class="iconfont iconfont-arrow-right"></span>
+			</span>
+			<span class="preview__name">
+				arrow-right
+			</span>
+			<span class="preview__code">\EA02</span>
+		</div>
+		
+		<div class="preview">
+			<span class="preview__icon">
+				<span class="iconfont iconfont-home"></span>
+			</span>
+			<span class="preview__name">
+				home
+			</span>
+			<span class="preview__code">\EA03</span>
+		</div>
+		
+		<div class="preview">
+			<span class="preview__icon">
+				<span class="iconfont iconfont-minus"></span>
+			</span>
+			<span class="preview__name">
+				minus
+			</span>
+			<span class="preview__code">\EA04</span>
+		</div>
+		
+		<div class="preview">
+			<span class="preview__icon">
+				<span class="iconfont iconfont-plus"></span>
+			</span>
+			<span class="preview__name">
+				plus
+			</span>
+			<span class="preview__code">\EA05</span>
+		</div>
+		
+		<div class="preview">
+			<span class="preview__icon">
+				<span class="iconfont iconfont-sns_facebook"></span>
+			</span>
+			<span class="preview__name">
+				sns_facebook
+			</span>
+			<span class="preview__code">\EA06</span>
+		</div>
+		
+		<div class="preview">
+			<span class="preview__icon">
+				<span class="iconfont iconfont-sns_facebook2"></span>
+			</span>
+			<span class="preview__name">
+				sns_facebook2
+			</span>
+			<span class="preview__code">\EA07</span>
+		</div>
+		
+		<div class="preview">
+			<span class="preview__icon">
+				<span class="iconfont iconfont-sns_instagram"></span>
+			</span>
+			<span class="preview__name">
+				sns_instagram
+			</span>
+			<span class="preview__code">\EA08</span>
+		</div>
+		
+		<div class="preview">
+			<span class="preview__icon">
+				<span class="iconfont iconfont-sns_line"></span>
+			</span>
+			<span class="preview__name">
+				sns_line
+			</span>
+			<span class="preview__code">\EA09</span>
+		</div>
+		
+		<div class="preview">
+			<span class="preview__icon">
+				<span class="iconfont iconfont-sns_line2"></span>
+			</span>
+			<span class="preview__name">
+				sns_line2
+			</span>
+			<span class="preview__code">\EA0A</span>
+		</div>
+		
+		<div class="preview">
+			<span class="preview__icon">
+				<span class="iconfont iconfont-sns_line3"></span>
+			</span>
+			<span class="preview__name">
+				sns_line3
+			</span>
+			<span class="preview__code">\EA0B</span>
+		</div>
+		
+		<div class="preview">
+			<span class="preview__icon">
+				<span class="iconfont iconfont-sns_line4"></span>
+			</span>
+			<span class="preview__name">
+				sns_line4
+			</span>
+			<span class="preview__code">\EA0C</span>
+		</div>
+		
+		<div class="preview">
+			<span class="preview__icon">
+				<span class="iconfont iconfont-sns_twitter"></span>
+			</span>
+			<span class="preview__name">
+				sns_twitter
+			</span>
+			<span class="preview__code">\EA0D</span>
+		</div>
+		
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+/**
+ *
+ * google gtsのルールを参考にした
+ * https://github.com/google/gts/blob/main/package.json
+ *
+ */
+
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended", //ESLintの推奨設定を適用する
+    "plugin:react/recommended",
+    "plugin:astro/recommended",
+    "prettier"
+  ],
+  "plugins": [ "react", "astro", "prettier" ], //使用するプラグインを指定する
+  "rules": {
+    "prettier/prettier": "error", //2行以上の空白でエラーなど
+    "no-use-before-define": "off",
+    "no-irregular-whitespace": "off", //全角スペースなどの大きな余白を許容する
+    "no-unused-vars": "off", //未使用の変数を定義してもスルー
+    "react/prop-types": "off",
+    "react/display-name": "off",
+    "react/react-in-jsx-scope": "off",
+    "camelcase": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "globals": {
+    "React": false
+  },
+  "overrides": [
+    //astroのみ適用するルールを設定
+    {
+      "files": ["*.astro"],
+      "rules": {
+        "react/no-unescaped-entities": "off",
+        "expected": "off",
+        "react/no-unknown-property": "off" //classがclassNameに変換されないように
+      }
+    },
+    //JavaScriptのみ適用するルールを設定
+    {
+      "files": ["*.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/explicit-function-return-type": "off"
+      }
+    },
+    //TypeScriptのみ適用するルールを設定
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "parser": "@typescript-eslint/parser", //TypeScript コード (.ts、.tsx)を扱えるようにする
+      "extends": [
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "rules": {
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-use-before-define": "off",
+        "@typescript-eslint/no-warning-comments": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/camelcase": "off",
+        "node/no-missing-import": "off",
+        "node/no-empty-function": "off",
+        "node/no-unsupported-features/es-syntax": "off",
+        "node/no-missing-require": "off",
+        "node/shebang": "off",
+        "no-dupe-class-members": "off",
+        "require-atomic-updates": "off"
+      },
+      "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+      }
+    }
+  ]
+}

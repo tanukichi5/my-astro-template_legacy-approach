@@ -1,0 +1,57 @@
+@use '../mediaQueries' as *;
+@use '../font-size' as *;
+@use '../../variables/color' as *;
+@use '../../variables/font-family' as *;
+
+@mixin h() {
+  //h1
+	h1 {
+		margin: 0 0 45px 0;
+		@include font-size(30px);
+		color: #2D2D2D;
+		font-weight: 500;
+		line-height: 1.2;
+		@include min-screen('md') {
+			@include font-size(18px);
+			margin: 0 0 20px 0;
+			line-height: 1.4;
+		}
+	}//headline-h1
+
+	//h2
+	h2 {
+		@include font-size(22px);
+		font-family: $font-family-mincho;
+		line-height: 1.5;
+		@include min-screen('md') {
+			@include font-size(24px);
+		}
+	}//headline-h2
+
+	//h3
+	h3 {
+		@include font-size(18px);
+		font-family: $font-family-mincho;
+		line-height: 1.5;
+		@include min-screen('md') {
+			@include font-size(22px);
+		}
+	}//headline-h3
+
+	//4
+	h4 {
+		@include font-size(18px);
+		font-family: $font-family-mincho;
+		line-height: 1.5;
+		@include min-screen('md') {
+			@include font-size(20px);
+		}
+	}//headline-h4
+
+	//h5
+	h5 {
+		@include font-size(17px);
+		font-family: $font-family-mincho;
+		line-height: 1.5;
+	}//headline-h5
+}

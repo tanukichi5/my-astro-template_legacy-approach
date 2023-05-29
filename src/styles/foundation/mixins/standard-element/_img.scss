@@ -1,0 +1,28 @@
+@use '../mediaQueries' as *;
+@use '../font-size' as *;
+
+@mixin img() {
+  img {
+		display: block;
+		margin-top: 35px;
+		max-width: 100%;
+		height: auto;
+		@include min-screen('md') {
+			margin: 55px auto 0 auto;
+		}
+	}
+	p {
+		img {
+			margin-top: 0;
+		}
+	}
+	figure {
+		text-align: center;
+		figcaption {
+			margin-top: 5px;
+			@include font-size(12px);
+			text-align: center;
+			// color: #aaa;
+		}
+	}
+}

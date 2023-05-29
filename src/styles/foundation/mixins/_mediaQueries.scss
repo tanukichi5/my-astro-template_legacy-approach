@@ -1,0 +1,134 @@
+/**
+ * メディアクエリのmixin
+ * 
+ * @usage
+ * @include min-screen('md') {
+ *  ここにスタイルを記述
+ * }
+
+ * @include min-screen('768px') {
+ *  ここにスタイルを記述
+ * }
+*/
+
+@use '../functions/screen' as *;
+
+//  Author: Rafal Bromirski
+//  www: http://rafalbromirski.com/
+//  github: http://github.com/paranoida/sass-mediaqueries
+//
+//  Licensed under a MIT License
+//
+//  Version:
+//  1.6.1
+
+// --- generator ---------------------------------------------------------------
+
+@mixin mq($args...) {
+  $media-type: 'only screen';
+  $media-type-key: 'media-type';
+  $args: keywords($args);
+  $expr: '';
+
+  @if map-has-key($args, $media-type-key) {
+    $media-type: map-get($args, $media-type-key);
+    $args: map-remove($args, $media-type-key);
+  }
+
+  @each $key, $value in $args {
+    @if $value {
+      $expr: "#{$expr} and (#{$key}: #{$value})";
+    }
+  }
+
+  @media #{$media-type} #{$expr} {
+    @content;
+  }
+}
+
+@mixin not-mq($args...) {
+  $media-type: 'not all';
+  $media-type-key: 'media-type';
+  $args: keywords($args);
+  $expr: '';
+
+  @if map-has-key($args, $media-type-key) {
+    $media-type: map-get($args, $media-type-key);
+    $args: map-remove($args, $media-type-key);
+  }
+
+  @each $key, $value in $args {
+    @if $value {
+      $expr: "#{$expr} and (#{$key}: #{$value})";
+    }
+  }
+
+  @media #{$media-type} #{$expr} {
+    @content;
+  }
+}
+
+// --- screen ------------------------------------------------------------------
+
+@mixin screen($min, $max, $orientation: false) {
+  @include mq($min-width: screen($min), $max-width: screen($max), $orientation: $orientation) {
+    @content;
+  }
+}
+
+@mixin max-screen($max) {
+  @include mq($max-width: screen($max)) {
+    @content;
+  }
+}
+
+@mixin not-max-screen($max) {
+  @include not-mq($max-width: screen($max)) {
+    @content;
+  }
+}
+
+@mixin min-screen($min) {
+  @include mq($min-width: screen($min)) {
+    @content;
+  }
+}
+
+@mixin not-min-screen($min) {
+  @include not-mq($min-width: screen($min)) {
+    @content;
+  }
+}
+
+@mixin screen-height($min, $max, $orientation: false) {
+  @include mq($min-height: screen($min), $max-height: screen($max), $orientation: $orientation) {
+    @content;
+  }
+}
+
+@mixin max-screen-height($max) {
+  @include mq($max-height: screen($max)) {
+    @content;
+  }
+}
+
+@mixin min-screen-height($min) {
+  @include mq($min-height: screen($min)) {
+    @content;
+  }
+}
+
+
+// --- orientation -------------------------------------------------------------
+
+@mixin landscape() {
+  @include mq($orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin portrait() {
+  @include mq($orientation: portrait) {
+    @content;
+  }
+}

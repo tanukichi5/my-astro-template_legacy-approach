@@ -1,0 +1,170 @@
+@use '@/styles/global' as *;
+
+$fullScreenMenu_duration: 0.3s;
+$fullScreenMenu_line_margin: 7; //ハンバーガーメニューボタンのライン余白
+
+//カテゴリーナビ
+.fullScreenMenu-button{
+  // @include reset-button();
+  padding: 0;
+	background: none;
+	border: none;
+	appearance: none;
+
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background: $color-brand06;
+  border-radius: 50%;
+  // border: solid 1px #ddd;
+  cursor: pointer;
+  z-index: 1001;
+  &.is-open {
+    // background: #002241;
+  }
+}
+
+.fullScreenMenu-button__line {
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: $color-grayscale-1000;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -10px;
+  // margin-top: -1px;
+  border-radius: 4px;
+  transition: width 0.2s, right 0.2s, left 0.2s;
+
+  &:nth-child(1) {
+    transform: translateY(-#{$fullScreenMenu_line_margin}px);
+  }
+  &:nth-child(2) {
+    transition: $fullScreenMenu_duration opacity;
+    opacity: 1;
+  }
+  &:nth-child(3) {
+    transform: translateY(#{$fullScreenMenu_line_margin}px);
+  }
+
+  @include state(".fullScreenMenu-button", ".is-open") {
+    @include state(".fullScreenMenu-button__line", ":nth-child(1)") {
+      animation: button-line-open-top $fullScreenMenu_duration;
+      animation-fill-mode: forwards;
+      // background: #002241;
+    }
+    @include state(".fullScreenMenu-button__line", ":nth-child(2)") {
+      opacity: 0;
+      transition: $fullScreenMenu_duration opacity;
+      // background: #002241;
+    }
+    @include state(".fullScreenMenu-button__line", ":nth-child(3)") {
+      animation: button-line-open-bottom $fullScreenMenu_duration;
+      animation-fill-mode: forwards;
+      // background: #002241;
+    }
+  }
+
+  @include state(".fullScreenMenu-button", ".is-close") {
+    @include state(".fullScreenMenu-button__line", ":nth-child(1)") {
+      animation: button-line-close-top $fullScreenMenu_duration;
+      animation-fill-mode: forwards;
+    }
+    @include state(".fullScreenMenu-button__line", ":nth-child(2)") {
+      opacity: 1;
+      transition: $fullScreenMenu_duration opacity;
+    }
+    @include state(".fullScreenMenu-button__line", ":nth-child(3)") {
+      animation: button-line-close-bottom $fullScreenMenu_duration;
+      animation-fill-mode: forwards;
+    }
+  }
+  
+}
+
+
+@keyframes button-line-close-top {
+  0% {
+    transform: translateY(0px) rotate(-30deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-#{$fullScreenMenu_line_margin}px) rotate(0deg);
+  }
+}
+
+@keyframes button-line-close-bottom {
+  0% {
+    transform: translateY(0px) rotate(30deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(#{$fullScreenMenu_line_margin}px) rotate(0deg);
+  }
+}
+
+@keyframes button-line-open-top {
+  0% {
+    transform: translateY(-#{$fullScreenMenu_line_margin}px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(-30deg);
+  }
+}
+
+@keyframes button-line-open-bottom {
+  0% {
+    transform: translateY(#{$fullScreenMenu_line_margin}px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(30deg);
+  }
+}
+
+
+
+
+.fullScreenMenu-content {
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  visibility: hidden;
+  z-index: 1000;
+  @include min-screen('lg') {
+    display: none;
+  }
+  @include state(".fullScreenMenu-content", ".is-close") {
+    transition: visibility $fullScreenMenu_duration, transform $fullScreenMenu_duration;
+  }
+  @include state(".fullScreenMenu-content", ".is-open") {
+    transition: visibility $fullScreenMenu_duration, transform $fullScreenMenu_duration;
+    visibility: visible;
+  }
+}
+
+.fullScreenMenu-content__inner {
+  margin: auto;
+  max-height: 100vh;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+

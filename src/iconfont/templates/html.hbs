@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>{{fontName}}</title>
+	<style>
+		body {
+			font-family: sans-serif;
+			margin: 0;
+			padding: 10px 20px;
+		}
+		.preview {
+			display: flex;
+			align-items: center;
+			line-height: 2em;
+		}
+		.preview__icon {
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			width: 40px;
+			height: 40px;
+			text-align: center;
+			margin-right: 10px;
+		}
+		.preview__name {
+			margin-right: 10px;
+		}
+		{{baseSelector}} {
+			display: inline-block;
+			font-size: 16px;
+		}
+		{{{styles}}}
+	</style>
+</head>
+<body>
+	<h1>{{fontName}}</h1>
+	{{#each codepoints}}
+	<div class="preview">
+		<span class="preview__icon">
+			<span class="{{removePeriods ../baseSelector}} {{removePeriods ../baseSelector}}-{{@key}} {{../classPrefix}}{{this}}"></span>
+		</span>
+		<span class="preview__name">{{@key}}</span>
+		<span class="preview__code">{{this}}</span>
+	</div>
+	{{/each}}
+
+
+<script>
+const t = [...document.querySelectorAll(".preview__code")]
+t.forEach((v) => {
+  console.log(Number(v.innerText).toString(16))
+	v.textContent = `\\${Number(v.innerText).toString(16)}`
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+<% _.each(glyphs, function(glyph) { %>.<%= glyph.name.slice(0) %> { display: block }
+<% }); %>

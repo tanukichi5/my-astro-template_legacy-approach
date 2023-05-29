@@ -1,0 +1,35 @@
+@use '@/styles/global' as *;
+
+//simplebar.jsのデフォルトスタイルを上書き
+
+//スクロールする要素のラッパー
+.simplebar-wrapper {
+  padding-bottom: 12px;
+}
+
+.simplebar-scrollbar {
+  &:not(#_) {
+    //スクロールバーの棒部分装飾
+    &::before {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #2cc2e4;
+      border-radius: 5px;
+      opacity: 1;
+    }
+  }
+}
+
+//スクロールバーの背景
+.simplebar-track {
+  &:not(#_) {
+    height: 6px;
+    background: #f2f2f2;
+    border-radius: 5px;
+  }
+}
+
+.simplebar-scrollbar.simplebar-visible::before {
+}

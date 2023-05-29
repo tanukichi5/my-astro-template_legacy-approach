@@ -1,0 +1,21 @@
+---
+// layouts
+import Layout from '@/layouts/Layout.astro';
+import SiteHead from '@/layouts/parts/SiteHead.astro';
+
+// components: react
+import IconFont from '@/components/common/IconFont';
+---
+
+<Layout headEdit={true}>
+  <SiteHead
+    slot="site-head"
+    title="サンプルタイトル"
+    description="サンプルディスクリプション"
+  />
+
+  <div>
+    <h1>サンプルページ</h1>
+  </div>
+
+</Layout>

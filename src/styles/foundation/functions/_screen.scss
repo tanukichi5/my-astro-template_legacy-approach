@@ -1,0 +1,14 @@
+//ブレイクポイントを返す関数です
+
+@use '../variables/breakpoints' as *;
+
+@function screen($size) {
+  @if map-get($breakpoints, $size) {
+    @return map-get($breakpoints, $size);
+  } @else {
+    @return $size;
+  }
+}
+
+//screen('md')
+//結果:768px

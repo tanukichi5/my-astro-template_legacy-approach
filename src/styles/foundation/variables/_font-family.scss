@@ -1,0 +1,17 @@
+//https://fonts.google.com/noto/specimen/Noto+Sans+JP
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+//https://fonts.google.com/noto/specimen/Noto+Serif+JP
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif+JP:wght@400;500;700&display=swap');
+
+//どのデバイスでも安定したフォント表示するフォントファミリーセット
+$font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif !default;
+
+//一部に明朝を使用したい場合に使用するフォントファミリーセット
+$font-family-mincho: 'Noto Serif JP', serif !default;
+
+//一部に[Libre Baskerville]を使用したい場合に使用するフォントファミリーセット
+$font-family-libreBaskerville: 'Libre Baskerville', serif !default;
+
+//日本語はNoto Sans JPをベースとしたフォントファミリーセット
+$font-family-noto-sans-base: "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif !default;

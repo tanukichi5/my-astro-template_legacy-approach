@@ -1,0 +1,23 @@
+//グローバルで使用するmixin
+
+@forward 'aspect-ratio';
+@forward 'col';
+@forward 'font-size';
+@forward 'hover';
+@forward 'lhCrop';
+@forward 'mediaQueries';
+@forward 'containerQueries';
+@forward 'replace';
+@forward 'state';
+@forward 'text-clamp';
+@forward 'spacer';
+@forward 'visually-hidden';
+
+@forward 'standard-element/h';
+@forward 'standard-element/p';
+@forward 'standard-element/ul';
+@forward 'standard-element/ol';
+@forward 'standard-element/dl';
+@forward 'standard-element/img';
+@forward 'standard-element/table';
+

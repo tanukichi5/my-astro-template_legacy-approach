@@ -1,0 +1,50 @@
+---
+/**
+ *
+ * 基本のレイアウトコンポーネントです。
+ *
+ * Props
+ * headEdit: trueを渡すとheadを編集可能になる
+ * その場合必ず
+ * <SiteHead slot="site-head" />
+ * をslotに渡す。そうしないとhead内のmetaが無くなる
+ *
+ */
+
+// layouts
+import SiteHead from './parts/SiteHead.astro';
+import Header from './parts/Header.astro';
+import Footer from './parts/Footer.astro';
+import BaseScript from './parts/BaseScript.astro';
+
+//style
+import '@/styles/base.scss'; //全ページ共通で使用するベースにあたるグローバルCSS
+import '@/styles/style.scss'; //WordPressに組み込むため今回は全てスタイルはFLOCSS + BEMのグローバルCSS
+import 'swiper/css/bundle';
+import 'simplebar/dist/simplebar.css';
+// import styles from './Layout.module.scss';
+
+type Props = {
+  headEdit?: boolean; //head編集
+};
+const props: Props = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    {props.headEdit ? <slot name="site-head" /> : <SiteHead />}
+  </head>
+  <body>
+    <div class="l-site siteWrapper">
+      <Header />
+      <div class="l-site-contents">
+        <main class="l-site-main">
+          <slot />
+        </main>
+      </div>
+      <Footer />
+    </div>
+    <BaseScript />
+  </body>
+</html>

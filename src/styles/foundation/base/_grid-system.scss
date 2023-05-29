@@ -1,0 +1,105 @@
+@use "sass:math";
+@use "@/styles/global" as *;
+
+// グリッドシステムcssジェネレーターです
+
+/*
+
+使い方
+ <div class="p-row">
+ 	<div class="p-col-lg-6">
+ 	</div>
+ 	<div class="p-col-lg-6">
+ 	</div>
+ </div>
+上記はタブレット以上の幅で2カラム
+※仕組みはBootstrapのグリッドシステムとほぼ同じ
+
+余白（margin）が欲しい場合
+ <div class="p-row -margin-lg-x-50 -margin-lg-y-30 -notGrid-margin-md-y-20">
+ 	<div class="p-col-lg-6">
+ 	</div>
+ 	<div class="p-col-lg-6">
+ 	</div>
+ </div>
+上記は左右下に50px,グリッドでないとき下20pxの例
+
+ -margin-{$gridBreakpoints.key}-{x or y}-{$marginList[value]} 縦横余白
+ p-col-{$gridBreakpoints.key}-{num} カラムの幅
+
+ -notGrid-margin-{$gridBreakpoints.key}-y-{$marginList[value]} グリッドでないときの縦余白
+
+*/
+
+
+// 編集エリア: ここ以外は編集しないでください
+$gridBreakpoints: (
+  "sm": 640px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1280px,
+) !default;
+
+$marginList: 0, 12, 24, 48 !default; //marginリスト
+// =============== 編集エリア ここまで
+
+$marginListX: $marginList; //横軸marginリスト
+$marginListY: $marginList; //縦軸marginリスト
+
+$gridBreakpointValues: map-values($gridBreakpoints);
+
+@function grid-12($x) {
+  $num: math.div(12, $x);
+  @return math.div(floor($num * 10000), 10000);
+}
+
+.p-row {
+  display: flex;
+  flex-wrap: wrap;
+  > * {
+    //グリッドでないときの下マージン
+    $count: 1;
+    @each $key, $breakpoint in $gridBreakpoints {
+      // @warn $gridBreakpointValues;
+      $count: $count + 1;
+      @each $margin in $marginList {
+        @if (length($gridBreakpointValues) >= $count) {
+          @include not-min-screen(nth($gridBreakpointValues, $count - 1)) {
+            // @warn $count;
+            @include state(".p-row", #{".-notGrid-margin-" + $key + "-y-" + $margin}) {
+              &:not(:first-child) {
+                margin-top: #{$margin + "px"};
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//$gridBreakpointsと$marginListに対応した全てのパターンのスタイルを生成
+@each $key, $breakpoint in $gridBreakpoints {
+  @for $num from 1 through 12 {
+    .p-col-#{$key}-#{$num} {
+      width: 100%;
+    }
+    @include min-screen($breakpoint) {
+      .p-col-#{$key}-#{$num} {
+        @include col(grid-12($num));
+        @each $marginX in $marginListX {
+          @each $marginY in $marginListY {
+            @include state(".p-row", #{".-margin-" + $key + "-x-" + $marginX}#{".-margin-" + $key + "-y-" + $marginY}) {
+              @include col(
+                grid-12($num),
+                $marginX,
+                $marginY,
+                #{".p-row.-margin-" + $key + "-x-" + $marginX}#{".-margin-" + $key + "-y-" + $marginY}
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@use '../mediaQueries' as *;
+@use '../font-size' as *;
+@use '../../variables/color' as *;
+@use '../../variables/font-family' as *;
+
+@mixin dl() {
+  dl {
+		// display: none;
+		display: flex;
+		flex-wrap: wrap;
+    + dl {
+      margin-top: 0;
+    }
+		dt {
+			font-weight: 500;
+			clear: both;
+			width: 33%;
+			padding: 20px 20px;
+			font-weight: 500;
+			color: #000;
+			border-top: solid 1px #000;
+			line-height: 1.7;
+		}
+		dd {
+			padding: 20px 10px 20px 40px;
+			border-top: solid 1px #C7C7C7;
+			line-height: 1.7;
+			width: 67%;
+		}
+	}
+}

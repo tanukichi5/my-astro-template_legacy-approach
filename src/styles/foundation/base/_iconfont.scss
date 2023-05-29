@@ -1,0 +1,64 @@
+@font-face {
+	font-family: "iconfont";
+	src: url('/fonts/iconfont.eot?1685328843');
+	src: url('/fonts/iconfont.eot?#iefix') format('eot'),
+		url('/fonts/iconfont.woff?1685328843') format('woff'),
+		url('/fonts/iconfont.ttf?1685328843') format('truetype'),
+		url('/fonts/iconfont.svg#iconfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+:where(.iconfont) {
+	display: inline-block;
+	font-family: "iconfont";
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.iconfont-lg {
+	font-size: 1.3333333333333333em;
+	line-height: 0.75em;
+	vertical-align: -15%;
+}
+.iconfont-2x { font-size: 2em; }
+.iconfont-3x { font-size: 3em; }
+.iconfont-4x { font-size: 4em; }
+.iconfont-5x { font-size: 5em; }
+.iconfont-fw {
+	width: 1.2857142857142858em;
+	text-align: center;
+}
+.iconfont-arrow-left:before { content: "\EA01" }
+.iconfont-arrow-right:before { content: "\EA02" }
+.iconfont-home:before { content: "\EA03" }
+.iconfont-minus:before { content: "\EA04" }
+.iconfont-plus:before { content: "\EA05" }
+.iconfont-sns_facebook:before { content: "\EA06" }
+.iconfont-sns_facebook2:before { content: "\EA07" }
+.iconfont-sns_instagram:before { content: "\EA08" }
+.iconfont-sns_line:before { content: "\EA09" }
+.iconfont-sns_line2:before { content: "\EA0A" }
+.iconfont-sns_line3:before { content: "\EA0B" }
+.iconfont-sns_line4:before { content: "\EA0C" }
+.iconfont-sns_twitter:before { content: "\EA0D" }
+
+
+$iconfonts: (
+	'arrow-left': \EA01,
+	'arrow-right': \EA02,
+	'home': \EA03,
+	'minus': \EA04,
+	'plus': \EA05,
+	'sns_facebook': \EA06,
+	'sns_facebook2': \EA07,
+	'sns_instagram': \EA08,
+	'sns_line': \EA09,
+	'sns_line2': \EA0A,
+	'sns_line3': \EA0B,
+	'sns_line4': \EA0C,
+	'sns_twitter': \EA0D,
+	
+)!default;

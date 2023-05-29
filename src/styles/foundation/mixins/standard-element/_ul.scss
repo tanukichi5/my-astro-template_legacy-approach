@@ -1,0 +1,55 @@
+@use '../mediaQueries' as *;
+@use '../font-size' as *;
+
+//ベース
+@mixin ul_origin() {
+  > li {
+    position: relative;
+    @include font-size(14px);
+    line-height: 1.6;
+    counter-increment:num;
+    padding-left: 15px;
+    > ul {
+      padding-left: 22px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      counter-reset:num;
+      > li {
+        counter-increment:num;
+
+      }
+      > ul {
+        padding-left: 22px;
+      }
+    }
+  }//li
+  li {
+    margin-top: 7px;
+    &:first-child {
+      margin-top: 0;
+    }
+    &:before {
+      position: absolute;
+      left: 2px;
+      top: 0.8em;
+      margin-top: -2px;
+      content: "";
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 2px;
+      background: #222;
+    }
+  }
+}
+
+//呼び出し
+@mixin ul($origin: 0) {
+  @if $origin == 0  {
+    ul {
+      @include ul_origin();
+    }
+  } @else {
+    @include ul_origin();
+  }
+}

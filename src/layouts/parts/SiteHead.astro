@@ -1,0 +1,101 @@
+---
+/**
+ * 
+ * サイト全体の共通head(meta)
+ * 
+ */
+
+export type SiteHeadProps = {
+  title?: string;
+  titleAllReplace?: boolean; // タイトルを全て置き換えるかどうか
+  description?: string;
+  keyword?: string;
+  ogimagePath?: string;
+  ogUrl?: string;
+};
+
+const { title, titleAllReplace, description, ogUrl, ogimagePath }: SiteHeadProps = Astro.props;
+---
+
+<meta charset="UTF-8" />
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1"
+/>
+
+<!-- 基本 -->
+<title>
+  {title ? `${title}${!titleAllReplace ? ' | ベースタイトル' : ''}` : `ベースタイトル`}
+</title>
+<meta
+  name="description"
+  content={description
+    ? `${description}`
+    : `ベースのディスクリプション`}
+/>
+
+<!-- OGP 共通設定 -->
+<meta
+  property="og:title"
+  content={title
+    ? `${title}${!titleAllReplace ? ' | ベースタイトル' : ''}`
+    : `ベースタイトル`}
+/>
+<meta
+  property="og:description"
+  content={description
+    ? `${description}`
+    : `ベースのディスクリプション`}
+/>
+<meta
+  property="og:type"
+  content="website"
+/>
+<meta
+  property="og:url"
+  content={ogUrl ? `${ogUrl}` : `https://aaaabbbbccccxxxx.com`}
+/>
+<meta
+  property="og:site_name"
+  content="ベースタイトル"
+/>
+<meta
+  property="og:image"
+  content={ogimagePath ? `${ogimagePath}` : `${Astro.url.origin}/images/ogp.jpg`}
+/>
+
+<!-- OGP twitter用設定 -->
+<meta
+  name="twitter:card"
+  content="summary_large_image"
+/>
+<meta
+  name="twitter:title"
+  content={title
+    ? `${title}${!titleAllReplace ? ' | ベースタイトル' : ''}`
+    : `ベースタイトル`}
+/>
+<meta
+  name="twitter:description"
+  content={description
+    ? `${description}`
+    : `ベースのディスクリプション`}
+/>
+<meta
+  name="twitter:url"
+  content={ogUrl ? `${ogUrl}` : `https://aaaabbbbccccxxxx.com`}
+/>
+<meta
+  name="twitter:image"
+  content={ogimagePath ? `${ogimagePath}` : `${Astro.url.origin}/images/ogp.jpg`}
+/>
+
+<link
+  rel="icon"
+  href="/images/base/favicon.ico"
+/>
+<link
+  rel="apple-touch-icon"
+  href="/images/base/apple-touch-icon.png"
+/>

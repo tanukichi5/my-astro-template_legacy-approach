@@ -1,0 +1,29 @@
+@use '@/styles/global' as *;
+
+/*
+
+トップページ用の汎用セクションスタイルです。
+
+*/
+
+.top-section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  padding-right: $side-margin-s;
+  padding-left: $side-margin-s;
+  @include min-screen('md') {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    padding-right: $side-margin;
+    padding-left: $side-margin;
+  }
+  &.-colored {
+    background: $color-brand02;
+  }
+}
+
+.top-section__inner {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+}

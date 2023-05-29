@@ -1,0 +1,24 @@
+---
+/**
+ * Gulpで作成したアイコンフォントを表示するコンポーネントです
+ *
+ * アイコンのプレビューファイル（ダブルクリックなどでブラウザで確認できます）
+ * /src/iconfont/sample.html
+ *
+ * @usage
+ * import IconFont from '@/components/common/IconFont.astro'
+ * <IconFont icon='stars' className={styles.iconFontStyle} />
+ *
+ */
+import styles from './IconFont.module.scss';
+
+import type { IconProps } from './IconFontType'; //アイコンフォントの型
+
+type Props = {
+  icon: IconProps;
+  addClass?: string; //本当はclassにしたいけど何故かエラーになる
+};
+const { icon, addClass }: Props = Astro.props;
+---
+
+<span class={`${styles.iconfont} ${styles['iconfont-' + icon]} ${addClass}`}></span>

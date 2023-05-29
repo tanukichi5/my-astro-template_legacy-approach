@@ -1,0 +1,70 @@
+/* カラーパレット
+ * ========================================================================== */
+
+/**
+ * ここにサイトで使用するカラーをパレットとして定義
+ * 原則としてこのパレット変数を直接使用してはいけない
+ */
+
+//グリーン系
+$palette-green01: #41a884 !default; //メイン
+$palette-green02: #d9eee6 !default;
+
+//ブルー系
+$palette-blue01: #107ccb !default;
+$palette-blue02: #062854 !default;
+$palette-blue03: #76b5f4 !default;
+
+//グレースケール系
+$palette-grayscale01: #2c2a3a !default; //主にテキストカラー
+$palette-grayscale02: #f2f5f9 !default;
+$palette-grayscale03: #fff !default;
+$palette-grayscale04: #c7c7c7 !default;
+
+/* 実際にサイトで使用するカラー変数
+ * ========================================================================== */
+
+//brand
+$color-brand: $palette-green01 !default;
+$color-brand02: #f2f0ec !default;
+$color-brand03: #f49f6f !default;
+$color-brand04: #fb8c96 !default;
+$color-brand05: #e9e4e0 !default;
+$color-brand06: #d9eee6 !default;
+
+$color-main: $palette-green01 !default;
+
+//文字
+$color-text: $palette-grayscale01 !default;
+$color-text02: #8B90A0 !default;
+
+//リンク
+$color-link: $palette-blue01 !default;
+
+//背景
+$color-background: $palette-grayscale02 !default;
+$color-background02: $palette-grayscale03 !default;
+
+//ボーダー
+$color-border: $palette-grayscale04 !default;
+$color-border02: $palette-blue03 !default; //サイドメニューの仕切り用ラインで使用
+
+//ボタン
+$color-button: $palette-green01 !default;
+$color-button02: $palette-green02 !default;
+
+//grayscale
+$color-grayscale-1000: #121e2f !default;
+$color-grayscale-700: #616161 !default;
+$color-grayscale-600: #747474 !default;
+$color-grayscale-500: #d1d1d1 !default;
+$color-grayscale-300: #e4e4e4 !default;
+$color-grayscale-100: #f2f2f2 !default;
+$color-grayscale-000: #ffffff !default;
+
+//SNS
+$color-sns-facebook: #375b95 !default;
+$color-sns-twitter: #4baeea !default;
+$color-sns-line: #04bb00 !default;
+
+$color-active: #2A96F8 !default;

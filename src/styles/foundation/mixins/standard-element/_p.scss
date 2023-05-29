@@ -1,0 +1,22 @@
+@use '../mediaQueries' as *;
+@use '../font-size' as *;
+@use '../../variables/color' as *;
+@use '../../variables/font-family' as *;
+
+//ベース
+@mixin p_origin($fz, $lh) {
+  @include font-size($fz);
+  line-height: #{$lh};
+  word-break: break-all;
+}
+
+//呼び出し
+@mixin p($fz: 14, $lh: 1.9, $origin: 0) {
+  @if $origin == 0  {
+    p {
+      @include p_origin($fz, $lh);
+    }
+  } @else {
+    @include p_origin($fz, $lh);
+  }
+}

@@ -1,0 +1,14 @@
+/*
+
+サイト全体で使用したい変数やmixinをまとめたファイル
+このファイルを読み込むことで変数やmixinが使用可能になる
+
+使い方
+他のscssファイル内で以下のように読み込む
+@use '@/styles/global' as *;
+
+*/
+
+@forward 'foundation/variables';
+@forward 'foundation/functions';
+@forward 'foundation/mixins';
