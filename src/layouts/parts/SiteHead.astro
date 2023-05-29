@@ -1,8 +1,8 @@
 ---
 /**
- * 
+ *
  * サイト全体の共通head(meta)
- * 
+ *
  */
 
 export type SiteHeadProps = {
@@ -30,23 +30,17 @@ const { title, titleAllReplace, description, ogUrl, ogimagePath }: SiteHeadProps
 </title>
 <meta
   name="description"
-  content={description
-    ? `${description}`
-    : `ベースのディスクリプション`}
+  content={description ? `${description}` : `ベースのディスクリプション`}
 />
 
 <!-- OGP 共通設定 -->
 <meta
   property="og:title"
-  content={title
-    ? `${title}${!titleAllReplace ? ' | ベースタイトル' : ''}`
-    : `ベースタイトル`}
+  content={title ? `${title}${!titleAllReplace ? ' | ベースタイトル' : ''}` : `ベースタイトル`}
 />
 <meta
   property="og:description"
-  content={description
-    ? `${description}`
-    : `ベースのディスクリプション`}
+  content={description ? `${description}` : `ベースのディスクリプション`}
 />
 <meta
   property="og:type"
@@ -72,15 +66,11 @@ const { title, titleAllReplace, description, ogUrl, ogimagePath }: SiteHeadProps
 />
 <meta
   name="twitter:title"
-  content={title
-    ? `${title}${!titleAllReplace ? ' | ベースタイトル' : ''}`
-    : `ベースタイトル`}
+  content={title ? `${title}${!titleAllReplace ? ' | ベースタイトル' : ''}` : `ベースタイトル`}
 />
 <meta
   name="twitter:description"
-  content={description
-    ? `${description}`
-    : `ベースのディスクリプション`}
+  content={description ? `${description}` : `ベースのディスクリプション`}
 />
 <meta
   name="twitter:url"
