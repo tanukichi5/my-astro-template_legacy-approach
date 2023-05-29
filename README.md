@@ -83,10 +83,12 @@ $ npm run iconfont
 
 ### アイコンフォントのプレビュー
 
-`/iconfont/sample.html`をブラウザで開くだけで使用可能なアイコンフォント一覧を確認できます。
+`/iconfont/preview.html`をブラウザで開くだけで使用可能なアイコンフォント一覧を確認できます。
 
 
 ## Storybook
+
+※一旦消したので無いです
 
 以下のコマンドでStorybookが起動します。
 ```
