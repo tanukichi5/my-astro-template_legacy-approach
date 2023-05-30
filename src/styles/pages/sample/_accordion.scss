@@ -1,0 +1,126 @@
+@use '@/styles/global' as *;
+
+/*
+
+アコーディオンのスタイルです。
+
+*/
+
+.sample-accordion-item {
+  padding: 24px;
+  border: solid 1px $color-grayscale-500;
+  border-radius: 12px;
+  @include min-screen('md') {
+    padding: 24px 32px;
+  }
+  & + & {
+    margin-top: 24px;
+  }
+}
+
+//アコーディオンの開閉トリガー
+.sample-accordion-item__trigger {
+  position: relative;
+  padding-left: 48px;
+  padding-right: 40px;
+  padding-top: 2px;
+  width: 100%;
+  text-align: left;
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: 'Q.';
+    color: $color-brand;
+    @include font-size(21px);
+  }
+  transition: color 0.2s ease-in-out;
+  @include hover() {
+    color: $color-brand;
+  }
+}
+
+//トリガーのテキスト
+.sample-accordion-item__trigger-text {
+  @include font-size(18px);
+  font-family: $font-family-mincho;
+  line-height: 1.6;
+}
+
+//トリガーのプラスマイナスのアイコン
+.sample-accordion-item__trigger-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  width: 32px;
+  height: 32px;
+  background: $color-brand;
+  border-radius: 50%;
+  color: #fff;
+  @include font-size(9px);
+  .-plus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+    @include state('.sample-accordion-item__trigger', '[aria-expanded="false"]') {
+      transform: translate(-50%, -50%) rotate(0);
+      opacity: 1;
+    }
+  }
+  .-minus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+    opacity: 1;
+    transition: transform 0.3s, opacity 0.3s;
+    @include state('.sample-accordion-item__trigger', '[aria-expanded="false"]') {
+      transform: translate(-50%, -50%) rotate(0);
+      opacity: 0;
+    }
+  }
+}
+
+//パネル
+.sample-accordion-item__panel {
+}
+
+.sample-accordion-item__panel-body {
+  position: relative;
+  padding-top: 48px;
+  padding-left: 48px;
+  //このafterはborderの役割
+  @include min-screen('md') {
+    padding-top: 60px;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: 0;
+    display: block;
+    height: 0px;
+    width: 100%;
+    border-top: 1px dashed $color-grayscale-1000;
+  }
+  &::before {
+    position: absolute;
+    top: 54px;
+    left: 0;
+    content: 'A.';
+    color: $color-brand04;
+    @include font-size(21px);
+    @include min-screen('md') {
+      top: 62px;
+    }
+  }
+}
+
+.sample-accordion-item__panel-text {
+  line-height: 2;
+  // font-weight: 300;
+}

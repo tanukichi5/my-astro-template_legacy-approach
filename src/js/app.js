@@ -18,3 +18,6 @@ import './common/pagePositionNav.js'
 
 //トップ
 import './top/heroSwiper.js'
+
+//サンプル
+import './sample/accordion.js'

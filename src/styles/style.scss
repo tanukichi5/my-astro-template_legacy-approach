@@ -26,4 +26,4 @@ Scoped CSSやCSS Modulesのようなスコープしない従来のFLOCSS + BEM�
 
 //pages 各ページの固有スタイル
 @use 'pages/top';
-// @use 'pages/sample';
+@use 'pages/sample';
