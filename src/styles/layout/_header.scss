@@ -3,3 +3,12 @@
 .l-header {
   background: #ccc;
 }
+
+
+/* スマホメニューのボタンの枠
+ * ========================================================================== */
+.l-header-fullScreenMenuButton {
+  @include min-screen('lg') {
+    display: none;
+  }
+}

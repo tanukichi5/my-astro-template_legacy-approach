@@ -92,7 +92,7 @@ $fullScreenMenu_line_margin: 7; //ハンバーガーメニューボタンのラ�
 
 @keyframes button-line-close-top {
   0% {
-    transform: translateY(0px) rotate(-30deg);
+    transform: translateY(0px) rotate(-45deg);
   }
   50% {
     transform: translateY(0px) rotate(0deg);
@@ -104,7 +104,7 @@ $fullScreenMenu_line_margin: 7; //ハンバーガーメニューボタンのラ�
 
 @keyframes button-line-close-bottom {
   0% {
-    transform: translateY(0px) rotate(30deg);
+    transform: translateY(0px) rotate(45deg);
   }
   50% {
     transform: translateY(0px) rotate(0deg);
@@ -122,7 +122,7 @@ $fullScreenMenu_line_margin: 7; //ハンバーガーメニューボタンのラ�
     transform: translateY(0px) rotate(0deg);
   }
   100% {
-    transform: translateY(0px) rotate(-30deg);
+    transform: translateY(0px) rotate(-45deg);
   }
 }
 
@@ -134,7 +134,7 @@ $fullScreenMenu_line_margin: 7; //ハンバーガーメニューボタンのラ�
     transform: translateY(0px) rotate(0deg);
   }
   100% {
-    transform: translateY(0px) rotate(30deg);
+    transform: translateY(0px) rotate(45deg);
   }
 }
 
@@ -207,16 +207,16 @@ $fullScreenMenu_line_margin: 7; //ハンバーガーメニューボタンのラ�
   align-items: center;
 }
 
-.p-fullScreenMenu-nav-list__item-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  background: #fff;
-  border-radius: 50%;
-  color: $color-brand;
-}
+// .p-fullScreenMenu-nav-list__item-icon {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 40px;
+//   height: 40px;
+//   background: #fff;
+//   border-radius: 50%;
+//   color: $color-brand;
+// }
 
 .p-fullScreenMenu-nav-list__item-text {
   color: #fff;

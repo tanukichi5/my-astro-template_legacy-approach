@@ -5,5 +5,52 @@ import IconFont from '@/components/common/IconFont';
 <header class="l-header">
   <div class="l-header__inner">
     <p>ヘッダー</p>
+
+    <!-- スマホメニューを開くボタン -->
+    <div class="l-header-fullScreenMenuButton">
+      <button
+        class="p-fullScreenMenu-button"
+        type="button"
+        data-fullScreenMenu-trigger="js-fullScreenMenu-content"
+        aria-label="メニューを開く"
+      >
+        <span class="p-fullScreenMenu-button__line"></span>
+        <span class="p-fullScreenMenu-button__line"></span>
+        <span class="p-fullScreenMenu-button__line"></span>
+      </button>
+    </div>
   </div>
 </header>
+
+<!-- スマホメニュー本体 -->
+<div
+  id="js-fullScreenMenu-content"
+  class="p-fullScreenMenu-base-wrapper"
+>
+  <div class="p-fullScreenMenu-base-content">
+    <div class="p-fullScreenMenu-body">
+      <div class="p-fullScreenMenu-body__inner">
+        <nav class="p-fullScreenMenu-nav">
+          <ul class="p-fullScreenMenu-nav-list">
+            <li class="p-fullScreenMenu-nav-list__item">
+              <a
+                href="/information/"
+                class="p-fullScreenMenu-nav-list__item-body"
+              >
+                <span class="p-fullScreenMenu-nav-list__item-text">メニュー1</span>
+              </a>
+            </li>
+            <li class="p-fullScreenMenu-nav-list__item">
+              <a
+                href="/facility/"
+                class="p-fullScreenMenu-nav-list__item-body"
+              >
+                <span class="p-fullScreenMenu-nav-list__item-text">メニュー2</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div><!-- /p-fullScreenMenu-body__inner -->
+    </div><!-- /p-fullScreenMenu-body -->
+  </div>
+</div>
